@@ -166,8 +166,7 @@ export class PkgMain {
    */
   getModulePath(component: Component) {
     const pkgName = this.getPackageName(component);
-    const path = join('node_modules', pkgName);
-    return path;
+    return join('node_modules', pkgName);
   }
 
   /**
@@ -235,7 +234,7 @@ export class PkgMain {
    * 3. props defined by the user (they are the strongest one)
    */
   async mergePackageJsonProps(component: Component): Promise<PackageJsonProps> {
-    let newProps = {};
+    let newProps: PackageJsonProps = {};
     const env = this.envs.calculateEnv(component)?.env;
     if (env?.getPackageJsonProps && typeof env.getPackageJsonProps === 'function') {
       const propsFromEnv = env.getPackageJsonProps();
